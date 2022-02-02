@@ -1,6 +1,7 @@
 #include "Rectangle.h"
 #include <stdlib.h>
 
+using namespace std;
 
 MyRectangle::MyRectangle(const MyRectangle& r) {
     x = r.x;
@@ -49,21 +50,17 @@ MyRectangle operator/(const MyRectangle& t, double d) {
     return tmp;
 }
 
-std::ostream& operator<< (std::ostream& out, const MyRectangle& r) {
-    for (int i = 0; i < abs(r.height - r.y); i++) {
-        //if (i == 0) out << "|";
-        for (int j = 0; j < abs(r.width - r.x); j++) {
-            if (j == 0) out << "_";
-
-            //out << "*";
-        }
-        //out << "\n";
-    }
+ostream& operator<< (std::ostream& out, const MyRectangle& r) {
+    out << "Координаты прямоугольника:";
+    out << "(" << r.x << ";" << r.y << ", ";
+    out << r.x << ";" << r.height << ", ";
+    out << r.width << ";" << r.height << ", ";
+    out << r.y << ";" << r.width << ")";
     return out;
 }
 
 std::istream& operator>> (std::istream& in, MyRectangle& p) {
-    std::cout << "Координата Х (Любое число не равное 0):";
+    std::cout << "Координата Х (Любое число не равное 0:";
     in >> p.x;
     if (!in) std::cerr << "Error x";
     std::cout << "Координата y (Любое число не равное 0):";
