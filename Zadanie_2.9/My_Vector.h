@@ -9,14 +9,16 @@ protected:
 	double* v;
 	int len;	
 public:	
-	My_Vector(int N);	//Конструктор	
+	My_Vector() : len(0), v(nullptr) {}	//Конструктор	
+	My_Vector(int length);
 	My_Vector(const My_Vector& temp);//Конструктор копирования –конструктор, создающий объект (типа vector)
 													//по уже имеющемуся объекту того же класса
 	int size() const;
 	double& operator [] (int index); // для использования в левой части присваивания:
 	double operator [] (int index) const; // для использования в правой части присваивания:
 	~My_Vector(); //Деструктор
-	void insert();
+	void insert(double value, int index);
 	void erase(int i, int j);
+	void reverce();
 };
 

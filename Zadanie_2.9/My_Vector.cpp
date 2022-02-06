@@ -2,11 +2,13 @@
 
 using namespace std;
 
-My_Vector::My_Vector(int N = 0) : v(0), len(0) {	//Конструктор	
-	if (N > 0)
-	v = new double[N];
-	if (v) len = N;
+My_Vector::My_Vector(int length) {	//Конструктор	
+	assert(length >= 0);
+	if (length > 0)
+	v = new double[length];
+	if (v) len = length;
 };
+
 
 My_Vector::My_Vector(const My_Vector& temp) : v(0), len(0) {//Конструктор копирования –конструктор, создающий объект (типа vector)
 													//по уже имеющемуся объекту того же класса
@@ -37,24 +39,20 @@ double My_Vector::operator [] (int index) const
 
 My_Vector::~My_Vector() { delete[] v; }
 
-void My_Vector::insert(){
-	double* nv;
-	int i, nlen;
-
-	if (len > 0) {
-		//создаем новый массив на 1 больше
-		nlen = len + 1;
-		nv = new double[nlen];
-		//проверяем, что он создался
-		if (nv){
-			//копируем данные из старого массива в новый
-			for (i = 0; i < len; i++){
-				nv[i] = v[i];
-			}
-			delete[] v;
-			v = nv;
-			len = nlen;
-		}
+void My_Vector::insert(double value, int index){
+	// Проверка корректности передаваемого индекса
+	assert(index >= 0 && index <= len);
+	//создаем новый массив на 1 больше
+	double* nv = new double[len + 1];
+	//проверяем, что он создался
+	if (nv){
+		//копируем данные из старого массива в новый
+		for (int i = 0; i < index; i++)
+			nv[i] = v[i];
+		nv[index] = value;
+		delete[] v;
+		v = nv;
+		++len;
 	}
 }
 
