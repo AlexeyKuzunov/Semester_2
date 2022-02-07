@@ -16,9 +16,9 @@ public:
 	int size() const;
 	double& operator [] (int index); // для использования в левой части присваивания:
 	double operator [] (int index) const; // для использования в правой части присваивания:
-	~My_Vector(); //Деструктор
-	void insert(double value, int index);
-	void erase(int i, int j);
+	~My_Vector(); //Деструктор	
+	void insert(int index, double value);
+	void erase(int del_num);
 	void reverce();
 };
 

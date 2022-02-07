@@ -72,9 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\Hobby\MGU\Semestr_2\Semester_2\Zadanie_2.9;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\Hobby\MGU\Semestr_2\Semester_2\Zadanie_2.9;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -139,13 +141,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArrayInt.cpp" />
-    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="..\Zadanie_2.9\My_Vector.cpp" />
+    <ClCompile Include="Times.cpp" />
     <ClCompile Include="Zadanie_3.9.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArrayInt.h" />
-    <ClInclude Include="Time.h" />
+    <ClInclude Include="..\Zadanie_2.9\My_Vector.h" />
+    <ClInclude Include="Times.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zadanie_2.9\Zadanie_2.9.vcxproj">
+      <Project>{03b16df4-5058-41f8-b3f5-6fd9ad1d329e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

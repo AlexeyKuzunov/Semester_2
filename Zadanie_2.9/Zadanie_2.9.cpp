@@ -15,23 +15,28 @@
 using namespace std;
 
 void main(){
-	My_Vector T(10);
 	setlocale(LC_CTYPE, "rus");
+	My_Vector T(10);
 	for (int i = 0; i < T.size(); i++){
 		T[i] = i;
 		cout << T[i] << '\n';
 	}
 	cout << '\n';
 
-	T.insert();
-	T[T.size() - 1] = 10;
+	T.insert(5, 0);
 	for (int i = 0; i < T.size(); i++){
 		cout << T[i] << '\n';
 	}
 	cout << '\n';
-	T.erase(3, 6);
+	T.erase(5);
 	for (int i = 0; i < T.size(); i++){
 		cout << T[i] << '\n';
 	}
+	cout << '\n';
+	T.reverce();
+	for (int i = 0; i < T.size(); i++) {
+		cout << T[i] << '\n';
+	}
+
 	system("pause");
 }
