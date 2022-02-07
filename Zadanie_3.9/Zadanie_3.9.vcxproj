@@ -142,12 +142,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Zadanie_2.9\My_Vector.cpp" />
-    <ClCompile Include="Times.cpp" />
+    <ClCompile Include="times.cpp" />
     <ClCompile Include="Zadanie_3.9.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Zadanie_2.9\My_Vector.h" />
-    <ClInclude Include="Times.h" />
+    <ClInclude Include="times.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Zadanie_2.9\Zadanie_2.9.vcxproj">

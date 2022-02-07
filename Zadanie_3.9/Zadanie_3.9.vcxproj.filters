@@ -21,7 +21,7 @@
     <ClCompile Include="..\Zadanie_2.9\My_Vector.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Times.cpp">
+    <ClCompile Include="times.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="..\Zadanie_2.9\My_Vector.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Times.h">
+    <ClInclude Include="times.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
