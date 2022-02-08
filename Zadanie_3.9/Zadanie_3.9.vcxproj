@@ -141,18 +141,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Zadanie_2.9\My_Vector.cpp" />
-    <ClCompile Include="times.cpp" />
+    <ClCompile Include="arrtime.cpp" />
+    <ClCompile Include="time.cpp" />
+    <ClCompile Include="vector.cpp" />
     <ClCompile Include="Zadanie_3.9.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Zadanie_2.9\My_Vector.h" />
-    <ClInclude Include="times.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Zadanie_2.9\Zadanie_2.9.vcxproj">
-      <Project>{03b16df4-5058-41f8-b3f5-6fd9ad1d329e}</Project>
-    </ProjectReference>
+    <ClInclude Include="arrtime.h" />
+    <ClInclude Include="time.h" />
+    <ClInclude Include="vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

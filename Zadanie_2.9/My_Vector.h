@@ -7,7 +7,7 @@ class My_Vector
 {
 protected:
 	double* v;
-	int len;	
+	int len = 0;	
 public:	
 	My_Vector() : len(0), v(nullptr) {}	//Конструктор	
 	My_Vector(int length);
