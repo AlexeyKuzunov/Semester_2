@@ -9,9 +9,9 @@ class MyRectangle
 	int x, y, height, width;
 	static void Plot(int x1, int y1, int x2, int y2);
 public:
-	MyRectangle(int nx = 0, int ny = 0, int nheight = 0, int nwidth = 0): x(nx), y(ny), height(nheight), width(nwidth){} //конструктор
-	MyRectangle(const MyRectangle& r); //конструктор копирования
-	~MyRectangle();  //деструктор
+	MyRectangle(int nx = 0, int ny = 0, int nheight = 0, int nwidth = 0): x(nx), y(ny), height(nheight), width(nwidth){} //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+	MyRectangle(const MyRectangle& r); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
+	~MyRectangle();  //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 	MyRectangle operator-(const MyRectangle& r);
 	MyRectangle operator+(const MyRectangle& r);
 	friend MyRectangle operator*(const MyRectangle& t, double d);

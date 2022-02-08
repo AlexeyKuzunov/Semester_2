@@ -9,14 +9,14 @@ protected:
 	double* v;
 	int len = 0;	
 public:	
-	My_Vector() : len(0), v(nullptr) {}	//Конструктор	
+	My_Vector() : len(0), v(nullptr) {}	//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ	
 	My_Vector(int length);
-	My_Vector(const My_Vector& temp);//Конструктор копирования –конструктор, создающий объект (типа vector)
-													//по уже имеющемуся объекту того же класса
+	My_Vector(const My_Vector& temp);//РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ вЂ“РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ, СЃРѕР·РґР°СЋС‰РёР№ РѕР±СЉРµРєС‚ (С‚РёРїР° vector)
+													//РїРѕ СѓР¶Рµ РёРјРµСЋС‰РµРјСѓСЃСЏ РѕР±СЉРµРєС‚Сѓ С‚РѕРіРѕ Р¶Рµ РєР»Р°СЃСЃР°
 	int size() const;
-	double& operator [] (int index); // для использования в левой части присваивания:
-	double operator [] (int index) const; // для использования в правой части присваивания:
-	~My_Vector(); //Деструктор	
+	double& operator [] (int index); // РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ Р»РµРІРѕР№ С‡Р°СЃС‚Рё РїСЂРёСЃРІР°РёРІР°РЅРёСЏ:
+	double operator [] (int index) const; // РґР»СЏ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РІ РїСЂР°РІРѕР№ С‡Р°СЃС‚Рё РїСЂРёСЃРІР°РёРІР°РЅРёСЏ:
+	~My_Vector(); //Р”РµСЃС‚СЂСѓРєС‚РѕСЂ	
 	void insert(int index, double value);
 	void erase(int del_num);
 	void reverce();

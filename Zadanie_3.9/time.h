@@ -6,12 +6,12 @@ private:
 	int minute;
 	int second;
 public:
-	//конструктор по умолчанию
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	time() : hour(0), minute(0), second(0){}
 	time(int h, int m, int s) : hour(h), minute(m), second(s) {}
-	//конструктор копирования
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	time(const time& tmp) : hour(tmp.hour), minute(tmp.minute), second(tmp.second) {}
-	//деструктор
+	//РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 	~time();
 	time& operator=(const time& tmp);
 	time& operator+=(const time& tmp);

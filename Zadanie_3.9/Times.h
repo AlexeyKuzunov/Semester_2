@@ -6,10 +6,10 @@ class times :
     public My_Vector
 {
 public:
-    //Конструкторы
+    //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
     times(int N = 0) : My_Vector(N*3){}
     times(const times& tmp) : My_Vector((const My_Vector&)tmp) {}
-    //Количество троек чисел 
+    //РљРѕР»РёС‡РµСЃС‚РІРѕ С‚СЂРѕРµРє С‡РёСЃРµР» 
     int size() const { return My_Vector::size() / 3; }
 
     int hours(int index);

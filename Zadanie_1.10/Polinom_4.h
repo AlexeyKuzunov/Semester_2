@@ -7,11 +7,11 @@ using namespace std;
 
 class Polinom {
 private:
-    double a, b, c, d, e; //коэффициенты полинома 4-й степени
+    double a, b, c, d, e; //РєРѕСЌС„С„РёС†РёРµРЅС‚С‹ РїРѕР»РёРЅРѕРјР° 4-Р№ СЃС‚РµРїРµРЅРё
 public:
-    Polinom(double na = 0.0, double nb = 0.0, double nc = 0.0, double nd = 0.0, double ne = 0.0) : a(na), b(nb), c(nc), d(nd), e(ne) {} //конструктор
-    ~Polinom();  //деструктор
-    Polinom(const Polinom& p); //конструктор копирования
+    Polinom(double na = 0.0, double nb = 0.0, double nc = 0.0, double nd = 0.0, double ne = 0.0) : a(na), b(nb), c(nc), d(nd), e(ne) {} //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
+    ~Polinom();  //РґРµСЃС‚СЂСѓРєС‚РѕСЂ
+    Polinom(const Polinom& p); //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
     Polinom operator-(const Polinom& t);
     Polinom operator+(const Polinom& t);
     friend Polinom operator*(const Polinom& t, double d);

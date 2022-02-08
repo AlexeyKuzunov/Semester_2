@@ -51,7 +51,7 @@ MyRectangle operator/(const MyRectangle& t, double d) {
 }
 
 ostream& operator<< (std::ostream& out, const MyRectangle& r) {
-    out << "Êîîðäèíàòû ïðÿìîóãîëüíèêà:";
+    out << "ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°:";
     out << "(" << r.x << ";" << r.y << ", ";
     out << r.x << ";" << r.height << ", ";
     out << r.width << ";" << r.height << ", ";
@@ -60,16 +60,16 @@ ostream& operator<< (std::ostream& out, const MyRectangle& r) {
 }
 
 std::istream& operator>> (std::istream& in, MyRectangle& p) {
-    std::cout << "Êîîðäèíàòà Õ (Ëþáîå ÷èñëî íå ðàâíîå 0:";
+    std::cout << "ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ð° Ð¥ (Ð›ÑŽÐ±Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð½Ðµ Ñ€Ð°Ð²Ð½Ð¾Ðµ 0:";
     in >> p.x;
     if (!in) std::cerr << "Error x";
-    std::cout << "Êîîðäèíàòà y (Ëþáîå ÷èñëî íå ðàâíîå 0):";
+    std::cout << "ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ð° y (Ð›ÑŽÐ±Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð½Ðµ Ñ€Ð°Ð²Ð½Ð¾Ðµ 0):";
     in >> p.y;
     if (!in) std::cerr << "Error y";
-    std::cout << "Âûñîòà ïðÿìîóãîëüíèêà (Ëþáîå ÷èñëî):";
+    std::cout << "Ð’Ñ‹ÑÐ¾Ñ‚Ð° Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ° (Ð›ÑŽÐ±Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾):";
     in >> p.height;
     if (!in) std::cerr << "Error height";
-    std::cout << "Øèðèíà ïðÿìîóãîëüíèêà (Ëþáîå ÷èñëî):";
+    std::cout << "Ð¨Ð¸Ñ€Ð¸Ð½Ð° Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ° (Ð›ÑŽÐ±Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾):";
     in >> p.width;
     if (!in) std::cerr << "Error width";    
     return in;

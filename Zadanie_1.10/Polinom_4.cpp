@@ -99,19 +99,19 @@ std::ostream& operator<< (std::ostream& out, const Polinom& p){
 }
 
 std::istream& operator>> (std::istream& in, Polinom& p){
-    std::cout << "Êîıôôèöèåíò äëÿ Õ^4 (Ëşáîå ÷èñëî íå ğàâíîå 0):";
+    std::cout << "ĞšĞ¾ÑÑ„Ñ„Ğ¸Ñ†Ğ¸ĞµĞ½Ñ‚ Ğ´Ğ»Ñ Ğ¥^4 (Ğ›ÑĞ±Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ½Ğµ Ñ€Ğ°Ğ²Ğ½Ğ¾Ğµ 0):";
     in >> p.a;
     if (!in) std::cerr << "Error a";
-    std::cout << "Êîıôôèöèåíò äëÿ Õ^3 (Ëşáîå ÷èñëî íå ğàâíîå 0):";
+    std::cout << "ĞšĞ¾ÑÑ„Ñ„Ğ¸Ñ†Ğ¸ĞµĞ½Ñ‚ Ğ´Ğ»Ñ Ğ¥^3 (Ğ›ÑĞ±Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾ Ğ½Ğµ Ñ€Ğ°Ğ²Ğ½Ğ¾Ğµ 0):";
     in >> p.b;
     if (!in) std::cerr << "Error b";
-    std::cout << "Êîıôôèöèåíò äëÿ Õ^2 (Ëşáîå ÷èñëî):";
+    std::cout << "ĞšĞ¾ÑÑ„Ñ„Ğ¸Ñ†Ğ¸ĞµĞ½Ñ‚ Ğ´Ğ»Ñ Ğ¥^2 (Ğ›ÑĞ±Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾):";
     in >> p.c;
     if (!in) std::cerr << "Error c";
-    std::cout << "Êîıôôèöèåíò äëÿ Õ (Ëşáîå ÷èñëî):";
+    std::cout << "ĞšĞ¾ÑÑ„Ñ„Ğ¸Ñ†Ğ¸ĞµĞ½Ñ‚ Ğ´Ğ»Ñ Ğ¥ (Ğ›ÑĞ±Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾):";
     in >> p.d;
     if (!in) std::cerr << "Error d";
-    std::cout << "Ëşáîå ÷èñëî:";
+    std::cout << "Ğ›ÑĞ±Ğ¾Ğµ Ñ‡Ğ¸ÑĞ»Ğ¾:";
     in >> p.e;
     if (!in) std::cerr << "Error e";
     return in;
