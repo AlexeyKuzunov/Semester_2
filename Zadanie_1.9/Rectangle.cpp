@@ -1,4 +1,4 @@
-#include "Rectangle.h"
+﻿#include "Rectangle.h"
 #include <stdlib.h>
 
 using namespace std;
@@ -16,10 +16,22 @@ MyRectangle::~MyRectangle() {
 
 MyRectangle MyRectangle::operator-(const MyRectangle& r) {
     MyRectangle t = *this;
-    t.x = x - r.x;
-    t.y = y - r.y;
-    t.height = height - r.height;
-    t.width = width - r.width;
+    if (r.x > x) {
+        t.x = r.x;
+        t.width = (width + x) - r.x;
+    }        
+    else {
+        t.x = x;
+        t.width = (r.x + r.width) - x;
+    }
+    if (r.y > y) {
+        t.y = r.y;
+        t.height = (height + y) - r.y;
+    }        
+    else {
+        t.y = y;
+        t.height = (r.height + r.y) - y;
+    }
     return t;
 }
 
@@ -32,12 +44,12 @@ MyRectangle MyRectangle::operator+(const MyRectangle& r) {
     return t;
 }
 
-MyRectangle operator*(const MyRectangle& t, double d) {
+MyRectangle MyRectangle::operator*(double d) {
     MyRectangle tmp;
-    tmp.x = t.x * d;
-    tmp.y = t.y * d;
-    tmp.height = t.height * d;
-    tmp.width = t.width * d;
+    tmp.x = tmp.x * d;
+    tmp.y = tmp.y * d;
+    tmp.height = tmp.height * d;
+    tmp.width = tmp.width * d;
     return tmp;
 }
 

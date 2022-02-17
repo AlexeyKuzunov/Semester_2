@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <iostream>
 
@@ -14,7 +14,7 @@ public:
 	~MyRectangle();  //деструктор
 	MyRectangle operator-(const MyRectangle& r);
 	MyRectangle operator+(const MyRectangle& r);
-	friend MyRectangle operator*(const MyRectangle& t, double d);
+	MyRectangle operator*(double d);
 	friend MyRectangle operator/(const MyRectangle& t, double d);
 	MyRectangle operator+=(const MyRectangle& t);
 	MyRectangle operator-=(const MyRectangle& t);

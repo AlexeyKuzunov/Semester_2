@@ -12,8 +12,9 @@
 int main()
 {
     setlocale(LC_CTYPE, "rus");
-    MyRectangle R;
-
-    std::cin >> R;
-    std::cout << R << "\n";
+    MyRectangle first, second, total;
+    std::cin >> first;
+    std::cin >> second;
+    total = first - second;
+    std::cout << total << "\n";
 }
