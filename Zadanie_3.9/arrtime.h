@@ -10,6 +10,7 @@ public:
     arrtime(int index=0) : vector(index*3) {}
     //конструктор копирования не наследуем
     arrtime(const arrtime& tmp) : vector((const vector&)tmp) {}
+    ~arrtime() { }
     //размер вектора
     int size() const { return vector::size() / 2; }
     //перегрузка []
@@ -18,5 +19,7 @@ public:
     void set(int index, const time& tmp);
     //сложение
     arrtime& operator+=(arrtime& tmp);
+    //вычитание
+    arrtime& operator-=(arrtime& tmp);
 };
 
