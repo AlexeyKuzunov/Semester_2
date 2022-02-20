@@ -12,9 +12,42 @@
 int main()
 {
     setlocale(LC_CTYPE, "rus");
-    MyRectangle first, second, total;
+    char op;
+    MyRectangle first;
+    std::cout << "Введите операцию: ";
+    std::cin >> op;
     std::cin >> first;
-    std::cin >> second;
-    total = first - second;
-    std::cout << total << "\n";
+    switch (op) {
+    case '-': {
+        MyRectangle second;
+        std::cin >> second;
+        first = first - second;
+        std::cout << first;
+        break;
+        }
+    case '+': {
+        MyRectangle second;
+        std::cin >> second;
+        first += second;
+        std::cout << first;
+        break;
+    }
+    case '*': {
+        double num;        
+        std::cout << "Введите число: ";
+        std::cin >> num;
+        first = first * num;
+        std::cout << first;
+        break;
+    }
+    case '/': {
+        double num;
+        std::cout << "Введите число: ";
+        std::cin >> num;
+        first = first / num;
+        std::cout << first;
+        break;
+    }
+    default:cerr << "Error!" << flush;
+    }
 }
