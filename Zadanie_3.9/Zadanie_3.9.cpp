@@ -5,9 +5,38 @@
 */
 
 #include <iostream>
+#include "arrtime.h"
+#include "time.h"
 
 int main()
 {
+    //Создаем два массива времен
+    ArrTime at(2);
+    ArrTime at1(2);
+    //Создаем два объекта времен
+    My_time my_t(12, 59, 59);
+    My_time my_t1(1, 1, 1);
+    std::cout << my_t << std::endl;
+    std::cout << my_t1 << std::endl;
+    //вставляем объекты времени в массивы
+    at.set(0, my_t);
+    at.set(1, my_t1);
+    at1.set(0, my_t);
+    at1.set(1, my_t1);
+    std::cout << at[0] << std::endl;
+    std::cout << at[1] << std::endl;
+    //Плюсуем к элементам первого массива элементы второго
+    at += at1;
+    std::cout << at[0] << std::endl;
+    std::cout << at[1] << std::endl;
+    //Минусуем элементы второго массива от элементов первого
+    at -= at1;
+    std::cout << at[0] << std::endl;
+    std::cout << at[1] << std::endl;
+    //Удаляем элемент массива
+    at.del(0);
+    std::cout << at[0] << std::endl;
+
 
     return 0;
 }

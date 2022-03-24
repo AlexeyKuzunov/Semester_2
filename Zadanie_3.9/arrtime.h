@@ -2,24 +2,26 @@
 #include "vector.h"
 #include "time.h"
 
-class arrtime :
-    public vector
+class ArrTime : public vector 
 {
 public:
     //в конструкторе указываем, что создается три элемента в массиве 
-    arrtime(int index=0) : vector(index*3) {}
+    ArrTime(int index=0) : vector(index*3) {}
     //конструктор копирования не наследуем
-    arrtime(const arrtime& tmp) : vector((const vector&)tmp) {}
-    ~arrtime() { }
+    ArrTime(const ArrTime& tmp) : vector((const vector&)tmp) {}
+    ~ArrTime() { }
     //размер вектора
-    int size() const { return vector::size() / 2; }
+    int size() const { return vector::size() / 3; }
     //перегрузка []
-    time operator [] (int index);
+    My_time operator [] (int index);
     //присваивание
-    void set(int index, const time& tmp);
+    void set(int index, const My_time& tmp);
+    //удаление
+    void del(int index);
     //сложение
-    arrtime& operator+=(arrtime& tmp);
+    ArrTime& operator+=(ArrTime& tmp);
     //вычитание
-    arrtime& operator-=(arrtime& tmp);
+    ArrTime& operator-=(ArrTime& tmp);
+
 };
 

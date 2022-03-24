@@ -38,7 +38,9 @@ int vector::operator [] (int index) const
 	return v[index];
 }
 
-vector::~vector() { delete[] v; }
+vector::~vector() {
+	delete[] v;
+}
 
 void vector::insert(int index, int value){
 	// Проверка корректности передаваемого индекса
