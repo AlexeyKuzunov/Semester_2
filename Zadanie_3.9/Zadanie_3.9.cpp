@@ -10,33 +10,39 @@
 
 int main()
 {
+    setlocale(LC_CTYPE, "rus");
     //Создаем два массива времен
     ArrTime at(2);
     ArrTime at1(2);
     //Создаем два объекта времен
-    My_time my_t(12, 59, 59);
+    My_time my_t(12, 1, 1);
     My_time my_t1(1, 1, 1);
+    std::cout << "Значение первого времени: ";
     std::cout << my_t << std::endl;
+    std::cout << "Значение второго времени: ";
     std::cout << my_t1 << std::endl;
     //вставляем объекты времени в массивы
     at.set(0, my_t);
     at.set(1, my_t1);
     at1.set(0, my_t);
     at1.set(1, my_t1);
-    std::cout << at[0] << std::endl;
-    std::cout << at[1] << std::endl;
-    //Плюсуем к элементам первого массива элементы второго
+    std::cout << "Все элементы первого массива" << std::endl;
+    std::cout << at[0] << ", " << at[1] <<std::endl;
+    std::cout << "Все элементы второго массива" << std::endl;
+    std::cout << at1[0] << ", " << at1[1] << std::endl;
+
+    std::cout << "Плюсуем к элементам первого массива элементы второго" << std::endl;
     at += at1;
     std::cout << at[0] << std::endl;
     std::cout << at[1] << std::endl;
-    //Минусуем элементы второго массива от элементов первого
+    std::cout << "Минусуем элементы второго массива от элементов первого" << std::endl;
     at -= at1;
     std::cout << at[0] << std::endl;
     std::cout << at[1] << std::endl;
     //Удаляем элемент массива
     at.del(0);
+    std::cout << "При удалении нулевого элемента массива выводим ноовый нулевой элемент" << std::endl;
     std::cout << at[0] << std::endl;
-
 
     return 0;
 }

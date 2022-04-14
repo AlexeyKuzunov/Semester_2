@@ -15,7 +15,7 @@ using namespace std;
 в двух системах: физической (вещественные координаты) и пиксельной,
 связанной с текущим окном, в котором производится отрисовка траектории.
 */
-int x1, y1_, x2, y2;
+int x=0, y=0, _x2=0, _y2=0;
 
 int WINAPI DlgProc(HWND hDlg, WORD wMsg, WORD wParam, DWORD)
 {
@@ -59,8 +59,8 @@ int WINAPI DlgProc(HWND hDlg, WORD wMsg, WORD wParam, DWORD)
 				траектории в виде ломаной, в цикле по общему количеству точек.
 				*/
 				POINT ptOld;
-				MoveToEx(ps.hdc, x1, y1_, &ptOld);
-				LineTo(ps.hdc, x2, y2);
+				MoveToEx(ps.hdc, x, y, &ptOld);
+				LineTo(ps.hdc, _x2, _y2);
 				/* Перо нам больше не требуется, уничтожим его: */
 				SelectObject(ps.hdc, hOldPen);
 				DeleteObject(hPen);
@@ -73,9 +73,9 @@ int main()
 {
 	/* Ввод параметров задачи: */
 	cout << "Please, enter 4 coords:\n" << flush;
-	cin >> x1 >> y1_ >> x2 >> y2;
-	cout << "x1 = " << x1 << "\ny1 = " << y1_
-		<< "\nx2 = " << x2 << "\ny2 = " << y2 << "\n" << flush;
+	cin >> x >> y >> _x2 >> _y2;
+	cout << "x1 = " << x << "\n y1 = " << y
+		<< "\n x2 = " << _x2 << "\n y2 = " << _y2 << "\n" << flush;
 	/*
 	Здесь, перед показом, нужно расчитать координаты
 	всех точек траектории в физической системе координат.

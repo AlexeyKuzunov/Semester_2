@@ -11,7 +11,7 @@ public:
     ArrTime(const ArrTime& tmp) : vector((const vector&)tmp) {}
     ~ArrTime() { }
     //размер вектора
-    int size() const { return vector::size() / 3; }
+    int size() const { return vector::len / 3; }
     //перегрузка []
     My_time operator [] (int index);
     //присваивание
