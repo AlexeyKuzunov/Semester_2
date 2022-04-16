@@ -8,6 +8,7 @@
 #include <iostream>
 #include <windows.h>
 #include "resource.h"
+#include "points.h"
 
 using namespace std;
 
@@ -71,17 +72,28 @@ int WINAPI DlgProc(HWND hDlg, WORD wMsg, WORD wParam, DWORD)
 
 int main()
 {
+	int dx = 3;
+
+	Points AP;
+
+	for (int i = 0; i <= (dx - 1); i++) {
+		AP.add(i, -(i * i));
+	}
+
+	cout << AP << endl;
+
+
 	/* Ввод параметров задачи: */
-	cout << "Please, enter 4 coords:\n" << flush;
-	cin >> x >> y >> _x2 >> _y2;
-	cout << "x1 = " << x << "\n y1 = " << y
-		<< "\n x2 = " << _x2 << "\n y2 = " << _y2 << "\n" << flush;
+	//cout << "Please, enter 4 coords:\n" << flush;
+	//cin >> x >> y >> _x2 >> _y2;
+	//cout << "x1 = " << x << "\n y1 = " << y
+	//	<< "\n x2 = " << _x2 << "\n y2 = " << _y2 << "\n" << flush;
 	/*
 	Здесь, перед показом, нужно расчитать координаты
 	всех точек траектории в физической системе координат.
 	Массивы x-y координат должны быть доступны глобально -
 	в DlgProc и в функции main.
 	*/
-	DialogBox(NULL, MAKEINTRESOURCE(IDD_DIALOG1), NULL, (DLGPROC)DlgProc);
+	// DialogBox(NULL, MAKEINTRESOURCE(IDD_DIALOG1), NULL, (DLGPROC)DlgProc);
 }
 
