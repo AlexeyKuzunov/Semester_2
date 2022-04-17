@@ -6,7 +6,7 @@
 class vector
 {
 protected:
-	int* v;
+	double* v;
 	int len;	
 public:	
 	vector() : len(0), v(nullptr) {};	//Конструктор	
@@ -14,11 +14,11 @@ public:
 	vector(const vector& temp);//Конструктор копирования –конструктор, создающий объект (типа vector)
 													//по уже имеющемуся объекту того же класса
 	int size() const;
-	int& operator [] (int index); // для использования в левой части присваивания:
-	int operator [] (int index) const; // для использования в правой части присваивания:
+	double& operator [] (int index); // для использования в левой части присваивания:
+	double operator [] (int index) const; // для использования в правой части присваивания:
 	~vector(); //Деструктор	
-	void insert(int index, int value);
+	void insert(int index, double value);
 	void erase(int del_num);
-	void add(int value);
+	void add(double value);
 	void reverce();
 };

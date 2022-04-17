@@ -24,7 +24,7 @@ public:
     ////удаление
     //void del(int index);
     //Добавление в конец массива
-    void add(int vx, int vy);
+    void add(double vx, double vy);
     ////сложение
     //Points& operator+=(Points& tmp);
     ////вычитание

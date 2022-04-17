@@ -13,7 +13,7 @@ void Points::set(int index, const My_point& tmp) {
 	v[index * 2 + 1] = tmp.gety();
 }
 
-void Points::add(int vx, int vy) {
+void Points::add(double vx, double vy) {
 	vector::add(vx);
 	vector::add(vy);
 }

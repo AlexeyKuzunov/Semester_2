@@ -5,7 +5,7 @@ using namespace std;
 vector::vector(int length) : len(0), v(nullptr) {	//Конструктор	
 	assert(length >= 0);
 	if (length > 0)
-		v = new int[length];
+		v = new double[length];
 	if (v) 
 		len = length;
 };
@@ -14,7 +14,7 @@ vector::vector(int length) : len(0), v(nullptr) {	//Конструктор
 vector::vector(const vector& temp) : v(0), len(0) {//Конструктор копирования –конструктор, создающий объект (типа vector)
 													//по уже имеющемуся объекту того же класса
 	if (temp.len > 0)
-		v = new int[temp.len];
+		v = new double[temp.len];
 	if (v) {
 		len = temp.len;
 		for (int i = 0; i < len; ++i)
@@ -26,13 +26,13 @@ vector::vector(const vector& temp) : v(0), len(0) {//Конструктор ко
 
 int vector::size() const { return len; }
 
-int& vector::operator [] (int index)
+double& vector::operator [] (int index)
 {
 	assert(index >= 0 && index < len);
 	return v[index];
 }
 
-int vector::operator [] (int index) const
+double vector::operator [] (int index) const
 {
 	assert(index >= 0 && index < len);
 	return v[index];
@@ -42,12 +42,12 @@ vector::~vector() {
 	delete[] v;
 }
 
-void vector::insert(int index, int value){
+void vector::insert(int index, double value){
 	// Проверка корректности передаваемого индекса
 	assert(index >= 0);
 	
 	//создаем новый массив на 1 больше
-	int* nv = new int[len + 1];
+	double* nv = new double[len + 1];
 	//проверяем, что он создался
 	if (nv){
 		// Копируем все элементы аж до index-а 
@@ -77,7 +77,7 @@ void vector::erase(int index){
 		return;
 	}
 	//создаем новый массив на единицу меньше
-	int* nv = new int[len - 1];
+	double* nv = new double[len - 1];
 	//проверяем, что он создался
 	if (nv){
 		// Копируем все элементы аж до index-а
@@ -94,7 +94,7 @@ void vector::erase(int index){
 
 void vector::reverce() {
 	//создаем временный массив
-	int* nv = new int[len];
+	double* nv = new double[len];
 	int i_nv = 0;
 	//проверяем, что он создался
 	if (nv) {
@@ -109,6 +109,6 @@ void vector::reverce() {
 	}
 }
 
-void vector::add(int value) {
+void vector::add(double value) {
 	this->insert(len, value);
 }

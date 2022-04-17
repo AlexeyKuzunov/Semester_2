@@ -5,17 +5,18 @@
 class My_point
 {
 private:
-	int x;
-	int y;
+	double x;
+	double y;
 public:
 	//конструктор по умолчанию
 	My_point() : x(0), y(0){}
-	My_point(int x_0, int y_0) : x(x_0), y(y_0){}
+	My_point(double x_0, double y_0) : x(x_0), y(y_0){}
 	//конструктор копирования
 	My_point(const My_point& tmp) : x(tmp.x), y(tmp.y) {}
 	//My_time& operator=(const My_time& tmp);
 	//My_time& operator+=(const My_time& tmp);
 	//friend std::ostream& operator<< (std::ostream& out, const My_time& t);
-	int getx() const { return x; }
-	int gety() const { return y; }
+	double getx() const { return x; }
+	double gety() const { return y; }
+	void sety(double tmpy) { y += tmpy; }
 };
