@@ -97,6 +97,7 @@ int main()
 	cout << "Please, enter 5 coords:\n" << flush;
 	cin >> x >> y >> V >> deg >> tm;
 
+
 	const double pi = 3.14;							//число пи
 	const double g = 7.8;							//ускорение свободного падения
 	
