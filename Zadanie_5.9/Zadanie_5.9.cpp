@@ -15,8 +15,6 @@
 using namespace std;
 
 Points ap_f, ap_p; //массивы в физической и пиксельной системах
-int x, y = 0;	//координаты начала движения тела
-
 
 int WINAPI DlgProc(HWND hDlg, WORD wMsg, WORD wParam, DWORD)
 {
@@ -32,50 +30,22 @@ int WINAPI DlgProc(HWND hDlg, WORD wMsg, WORD wParam, DWORD)
 			int dx = rc.right - rc.left;
 			int dy = rc.bottom - rc.top;
 			My_point mp = { 0.0, (double)dy };
-			/* После этого нужно отмасштабировать физические координаты траектории,
-			чтобы они помещались в поле зрения окна. То есть, нужно рассчитать
-			для каждой точки траектории пиксельные координаты в системе координат
-			данного окна. Само окно пользователь еще не видит.
-			*/
-
+			/* Преобразование массива из физической в пиксельную системы*/
 			for (int i = 0; i < ap_f.size(); i++) {
 				ap_p.set(i, mp - ap_f[i]);
 			}
-			cout << ap_p << endl;
-		}
+			//cout << ap_p << endl;		}
 		else
 			if (wMsg == WM_PAINT) {
 				BeginPaint(hDlg, &ps);
 				/* Зададим цвет линий: */
 				HPEN hPen = (HPEN)CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
 				HPEN hOldPen = (HPEN)SelectObject(ps.hdc, hPen);
-				/*
-				Вот что вообще можно здесь рисовать:
-				MoveToEx(ps.hdc,int x,int y,NULL);
-				( последний параметр – адрес структуры POINT
-				для возврата координат предыдущей позиции )
-				LineTo(ps.hdc,int x,int y); (с первого пиксела, но без последнего)
-				TextOut(ps.hdc,int x,int y,char* szText,lstrlen(szText));
-				Rectangle(ps.hdc,int left,int top,int right,int bottom);
-				Ellipse(ps.hdc,int left,int top,int right,int bottom);
-				Polygon(ps.hdc,const POINT * lp,int nPoints);
-				Polyline(ps.hdc,const POINT * lp,int nPoints);
-				SetPixel(ps.hdc,int x,int y, RGB(red,green,blue));
-				*/
-				/* Здесь – производится отрисовка расчитанных пиксельных координат
-				траектории в виде ломаной, в цикле по общему количеству точек.
-				*/
 				POINT ptOld;
 				MoveToEx(ps.hdc, (int)ap_p[0].getx(), (int)ap_p[0].gety(), &ptOld);
 				for (int i = 0; i < ap_f.size(); i++) {
 					LineTo(ps.hdc, (int)ap_p[i].getx(), (int)ap_p[i].gety());
-					//	SetPixel(ps.hdc, (int)ap_p[i].getx(), (int)ap_p[i].gety(), RGB(0, 0, 255));
 				}
-				//LineTo(ps.hdc, _x2, _y2);
-
-				/* Преобразование массива из физической в пиксельную системы*/
-
-
 				/* Перо нам больше не требуется, уничтожим его: */
 				SelectObject(ps.hdc, hOldPen);
 				DeleteObject(hPen);
@@ -86,16 +56,22 @@ int WINAPI DlgProc(HWND hDlg, WORD wMsg, WORD wParam, DWORD)
 
 int main()
 {
-	//int dx = 50;
-	
-	int	V = 1,									//начальная скорость
-		deg = 0;								//угол под которым бросили тело в градусах
-	double tm = 0;								//необходимый промежуток времени
+	setlocale(LC_CTYPE, "rus");
+	int	V = 1,		//начальная скорость
+		deg = 0;	//угол под которым бросили тело в градусах
+	double tm = 0;	//необходимый промежуток времени
+	int x, y = 0;	//координаты начала движения тела
 
 	/* Ввод параметров задачи: */
 
-	cout << "Please, enter 5 coords:\n" << flush;
-	cin >> x >> y >> V >> deg >> tm;
+	cout << "Введите через Enter начальные координаты тела х0 и y0:\n" << flush;
+	cin >> x >> y;
+	cout << "Введите начальную скорость тела V:\n" << flush;
+	cin >> V;
+	cout << "Тело брошено под углом:\n" << flush;
+	cin >> deg;
+	cout << "Введите необходимый промежуток времени:\n" << flush;
+	cin>> tm;
 
 
 	const double pi = 3.14;							//число пи
@@ -123,19 +99,6 @@ int main()
 
 	/* Вывод на экран массива */
 	cout << ap_f << endl;
-
-
-	/* Ввод параметров задачи: */
-	//cout << "Please, enter 4 coords:\n" << flush;
-	//cin >> x >> y >> _x2 >> _y2;
-	//cout << "x1 = " << x << "\n y1 = " << y
-	//	<< "\n x2 = " << _x2 << "\n y2 = " << _y2 << "\n" << flush;
-	/*
-	Здесь, перед показом, нужно расчитать координаты
-	всех точек траектории в физической системе координат.
-	Массивы x-y координат должны быть доступны глобально -
-	в DlgProc и в функции main.
-	*/
 	DialogBox(NULL, MAKEINTRESOURCE(IDD_DIALOG1), NULL, (DLGPROC)DlgProc);
 }
 
