@@ -29,12 +29,16 @@ int WINAPI DlgProc(HWND hDlg, WORD wMsg, WORD wParam, DWORD)
 			GetClientRect(hDlg, &rc);
 			int dx = rc.right - rc.left;
 			int dy = rc.bottom - rc.top;
-			My_point mp = { 0.0, (double)dy };
+			My_point mp = { 0.0, (double)dy }, tmpp;
 			/* Преобразование массива из физической в пиксельную системы*/
 			for (int i = 0; i < ap_f.size(); i++) {
-				ap_p.set(i, mp - ap_f[i]);
+				tmpp = mp - ap_f[i];
+				if ((tmpp.getx() < dx) || (tmpp.gety() > 0))
+					ap_p.add(tmpp.getx(), tmpp.gety());
+					//ap_p.set(i, mp - ap_f[i]);
+				else break;
 			}
-			//cout << ap_p << endl;
+			cout << ap_p << endl;
 		}
 		else
 			if (wMsg == WM_PAINT) {
@@ -95,7 +99,7 @@ int main()
 		x2 = l / 50 * i + x;
 		_y = y + (x2 - x) * tan(rad) - 0.5 * g * pow((x2 - x) / V0x, 2);
 		ap_f.add(_x, _y);  //массив в физической системе
-		ap_p.add(0, 0);
+		//ap_p.add(0, 0);
 	}
 
 	/* Вывод на экран массива */
