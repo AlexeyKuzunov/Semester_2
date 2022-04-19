@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <math.h>
 
 class My_point
 {
@@ -18,5 +19,7 @@ public:
 	//friend std::ostream& operator<< (std::ostream& out, const My_time& t);
 	double getx() const { return x; }
 	double gety() const { return y; }
-	void sety(double tmpy) { y += tmpy; }
+	void add(double tmpy) { y += tmpy; }
+	My_point& operator= (const My_point& tmp) { x = tmp.x; y = tmp.y; return *this; }
+	friend My_point operator-(const My_point& tmp, const My_point& tmp1) { return My_point(fabs(tmp.x-tmp1.x), tmp.y - tmp1.y); }
 };

@@ -16,7 +16,7 @@ public:
     //размер вектора
     int size() const { return vector::len / 2; }
     //перегрузка []
-    My_point operator [] (int index);
+    My_point operator [] (const int index);
 
     const My_point operator [] (const int index) const;
     //присваивание
@@ -31,5 +31,4 @@ public:
     //Points& operator-=(Points& tmp);
 
     friend ostream& operator<< (std::ostream& out, const Points& r);
-
 };
