@@ -29,6 +29,5 @@ public:
     //Points& operator+=(Points& tmp);
     ////вычитание
     //Points& operator-=(Points& tmp);
-
     friend ostream& operator<< (std::ostream& out, const Points& r);
 };
