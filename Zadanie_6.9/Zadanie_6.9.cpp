@@ -8,8 +8,13 @@ vector<char>.
 */
 
 #include <iostream>
+#include "mydeque.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Mydeque<char> dq(1);
+    dq.push_front('A');
+    dq.push_front("ABCD", 4);
+    dq.push_back('B');
+    std::cout << dq.size() << std::endl;
 }
