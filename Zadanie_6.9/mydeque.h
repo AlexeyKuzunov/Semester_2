@@ -23,9 +23,20 @@ public:
             begindq.push_back(element[i]);
         }
     }
-
-
-
+    void push_back(const T* element, int length) {
+        for (int i = 0; i < length; i++) {
+            enddq.push_back(element[i]);
+        }
+    }
     int size() { return (begindq.size() + enddq.size()); }
 
+    friend ostream& operator<< (std::ostream& out, const Mydeque& r) {
+       
+        r.begindq<T> ::const_iterator it;
+        it = r.begindq.begin();
+        while (it != begindq.end()) {   // пока итератор не достигнет последнего элемента            
+            out << *it << " "; // выводим значение элемента, на который указывает итератор
+            ++it; // и переходим к следующему элементу
+        }
+    }
 };

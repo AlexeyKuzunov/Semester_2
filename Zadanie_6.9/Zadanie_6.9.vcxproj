@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="mydeque.cpp" />
     <ClCompile Include="Zadanie_6.9.cpp" />
   </ItemGroup>
   <ItemGroup>

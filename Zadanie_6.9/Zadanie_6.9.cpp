@@ -17,4 +17,5 @@ int main()
     dq.push_front("ABCD", 4);
     dq.push_back('B');
     std::cout << dq.size() << std::endl;
+    std::cout << dq << std::endl;
 }
