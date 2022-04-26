@@ -1,0 +1,6 @@
+  Zadanie_5.9.cpp
+D:\Hobby\MGU\Semester_2\Zadanie_5.9\Zadanie_5.9.cpp(65,31): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\Hobby\MGU\Semester_2\Zadanie_5.9\Zadanie_5.9.cpp(76,83): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\Hobby\MGU\Semester_2\Zadanie_5.9\Zadanie_5.9.cpp(76,48): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\Hobby\MGU\Semester_2\Zadanie_5.9\Zadanie_5.9.cpp(80,49): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+  Zadanie_5.9.vcxproj -> D:\Hobby\MGU\Semester_2\Debug\Zadanie_5.9.exe

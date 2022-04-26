@@ -1,0 +1,6 @@
+  Zadanie_..cpp
+D:\Hobby\MGU\Semester_\Zadanie_.\Zadanie_..cpp(,): warning C: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\Hobby\MGU\Semester_\Zadanie_.\Zadanie_..cpp(,): warning C: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\Hobby\MGU\Semester_\Zadanie_.\Zadanie_..cpp(,): warning C: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\Hobby\MGU\Semester_\Zadanie_.\Zadanie_..cpp(,): warning C: аргумент: преобразование "double" в "int", возможна потеря данных
+  Zadanie_..vcxproj -> D:\Hobby\MGU\Semester_\Debug\Zadanie_..exe
