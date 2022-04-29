@@ -15,8 +15,8 @@ using namespace std;
 
 int NoNumber(char *infile, char *outfile) {
     wstring line; // - хранилище временных строк 
-    wifstream in("in.txt"); // - входной файл (нужно создать в папке с програмой in.txt)
-    wofstream out("out.txt"); // - выходной файл (будет создан сам)
+    wifstream in(infile); // - входной файл (нужно создать в папке с програмой in.txt)
+    wofstream out(outfile); // - выходной файл (будет создан сам)
 
     while (getline(in, line)) {
         for (unsigned int c = 0; c < line.length(); c++){
