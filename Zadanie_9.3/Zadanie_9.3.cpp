@@ -13,10 +13,12 @@ Save result = true
 */
 
 #include <iostream>
+#include "inifile.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    MyIniFile MyFile("param.ini");
+    MyFile.PrintMap();
 }
 
 

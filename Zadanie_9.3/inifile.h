@@ -5,6 +5,7 @@
 #include <map>
 #include <fstream>
 #include <stdexcept>
+#include <iostream>
 
 /*
 1. открыть файл
@@ -16,12 +17,11 @@ using namespace std;
 
 class MyIniFile {
 private:
-	map<string, string> NameValueMap;
-	string NameIniFile;
-	static ifstream is;
+	map<string, string> ValueMap;
+	ifstream is;
 public:
 	MyIniFile(string NameFile);
-	static bool read(
-		std::string& name,          //[out] - èìÿ ïàðàìåòðà
-		std::string& val)           //[out] - çíà÷åíèå ïàðàìåòðà
+	~MyIniFile() { is.close();}
+	void PrintMap();
+
 };
