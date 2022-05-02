@@ -1,14 +1,21 @@
-
+п»ї
 #include "inifile.h"
 
 
 using namespace std;
 
-MyIniFile::MyIniFile(string NameFile) {
+MyIniFile::MyIniFile(const char* NameFile) {
     string name, val;
     char ch;
-    is.open(NameFile.c_str());
-    if (!is) throw "Файл не существует";
+    
+    is.open(NameFile);
+    try {
+        if (!is) throw "Р¤Р°Р№Р» РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚";
+    }
+    catch (const char* exception) {
+        std::cerr << "РћС€РёР±РєР°: " << exception << '\n';
+    }
+
     while (is) {
         name.erase();
         while (is.get(ch) && (ch != '='))
@@ -31,6 +38,6 @@ MyIniFile::MyIniFile(string NameFile) {
 void MyIniFile::PrintMap() {
     for (auto it = ValueMap.begin(); it != ValueMap.end(); ++it)
     {
-        cout << it->first << " : " << it->second << endl;
+        cout << it->first << " = " << it->second << endl;
     }
 }

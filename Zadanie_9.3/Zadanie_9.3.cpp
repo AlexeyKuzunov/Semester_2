@@ -14,11 +14,23 @@ Save result = true
 
 #include <iostream>
 #include "inifile.h"
+#include <string>
+
+using namespace std;
 
 int main()
 {
-    MyIniFile MyFile("param.ini");
+    setlocale(LC_CTYPE, "rus");
+    string str;
+    cout << "Введите имя файла параметров (param.ini) " << flush;
+    getline(cin, str);
+    MyIniFile MyFile(str.c_str());
     MyFile.PrintMap();
+    str.clear();
+    double d = ViewVal<double>(MyFile, "Pressure");
+    cout << d << endl;
+    bool b = ViewVal(MyFile, "Save result");
+    cout << std::boolalpha << b << endl;
 }
 
 
