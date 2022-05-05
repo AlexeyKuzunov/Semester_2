@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>  //для setw
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -14,8 +15,7 @@ private:
 public:
     Matrix() { data = nullptr; row = 0; col = 0; } //Конструктор по умолчанию
 
-    Matrix(int rows, int cols) //конструктор с указанием размера матрицы
-    {
+    Matrix(int rows, int cols) {//конструктор с указанием размера матрицы    
         int tmp = 0;
         setRow(rows);
         setCol(cols);
@@ -121,6 +121,17 @@ inline void Matrix<T>::transposition()
 
 template<class T>
 int Matrix<T>::LoadFile(string FileName) {
+
+    ifstream is.open(FileName.c_str);
+    try {
+        if (!is) throw "Файл не существует";
+    }
+    catch (const char* exception) {
+        std::cerr << "Ошибка: " << exception << '\n';
+    }
+    while (is) {
+
+    }
 
 }
 
