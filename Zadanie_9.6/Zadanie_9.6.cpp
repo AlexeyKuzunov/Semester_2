@@ -6,21 +6,19 @@
 */
 
 #include <iostream>
-#include "Matrix.h"
+#include "matrix.h"
 
 using namespace std;
 
 int main()
 {
-    Matrix <float> m(4, 4);
-
+    Matrix <int> m(5, 5);
+    m.fillTestArray();
     m.print();
 
-    cout << "\n";
-    // Recently added
-    cout << m(1, 1);
     cout << "\n";
     m.transposition();
     m.print();
+
     
 }
