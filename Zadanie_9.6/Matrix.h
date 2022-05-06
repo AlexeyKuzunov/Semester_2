@@ -122,7 +122,7 @@ inline void Matrix<T>::transposition()
 template<class T>
 int Matrix<T>::LoadFile(string FileName) {
 
-    ifstream is.open(FileName.c_str);
+    ifstream is(FileName);
     try {
         if (!is) throw "Файл не существует";
     }
@@ -137,5 +137,29 @@ int Matrix<T>::LoadFile(string FileName) {
 
 template<class T>
 int Matrix<T>::SaveFile(string FileName) {
+    ofstream outf(FileName);
+    // Если мы не можем открыть этот файл для записи данных,
+    try {
+        // то выводим сообщение об ошибке и выполняем функцию exit()
+        if (!outf) throw "Файл не удалось открыть для записи";
+    }
+    catch (const char* exception) {
+        std::cerr << "Ошибка: " << exception << '\n';
+    }
+    // Записываем в файл следующие две строки
+    
+    outf << "Row " << row << endl;
+    outf << "Col " << col << endl;
 
+    int i, j;
+
+    for (i = 0; i < row; i++) { // цикл по строкам    
+        for (j = 0; j < col; j++) { // цикл по сначениям строк
+            outf << (T)data[i][j];
+        }
+        std::cout << "\n";
+    }
+    // Когда outf выйдет из области видимости, то деструктор класса ofstream 
+    // автоматически закроет наш файл
+    return 0;
 }
