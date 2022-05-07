@@ -12,13 +12,24 @@ using namespace std;
 
 int main()
 {
-    Matrix <int> m(5, 5);
+    //Создаем новую матрицу
+    Matrix <int> m(5, 6);
+    //Заполняем тестовыми данными
     m.fillTestArray();
+    //выводим на экран
     m.print();
-
+    //сохраняем матрицу ы файл
+    m.SaveToFile("matrix.txt");
     cout << "\n";
+    //транспонируем
     m.transposition();
+    cout << "\n";
+    //выводим на экран результат
     m.print();
-
+    //загружаем ранее сохраненную первоначальную иатрицу
+    m.LoadFile("matrix.txt");
+    cout << "\n";
+    //выводим на экран первоначальную матрицу
+    m.print();
     
 }

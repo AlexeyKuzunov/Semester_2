@@ -34,7 +34,7 @@ public:
     T& operator()(int row, int col);
     void transposition();
     int LoadFile(string FileName); //создаем массив на основании его разинра из файла и переносим данные
-    int SaveFile(string FileName); //В начале файла сохраняем размер массива, потом перенос строки и данные
+    int SaveToFile(string FileName); //В начале файла сохраняем размер массива, потом перенос строки и данные
 
 
 };
@@ -80,7 +80,7 @@ inline void Matrix<T>::transposition()
     T** data_tmp;
     int trow = col, tcol = row;
     int i = 0, j = 0;
-
+    //если количество строк и столбцов разное
     if (row != col) {
         //создаем временную матрицу с количеством строк равным количеству колонок старой матрицы
         //и количеством колонок равным количеству строк старой матрицы
@@ -100,11 +100,10 @@ inline void Matrix<T>::transposition()
                 }           
             }
         }
-        data = data_tmp;
         col = tcol;
         row = trow;
     }
-    else {
+    else { //если количество строк и столбцов одинаковое
         data_tmp = new T * [row];
         for (int i = 0; i < row; i++) {
             data_tmp[i] = new T[col];
@@ -114,30 +113,36 @@ inline void Matrix<T>::transposition()
                 data_tmp[i][j] = data[j][i];
             }
         }
-        data = data_tmp;
     }
-    
+    data = data_tmp;
 }
 
 template<class T>
 int Matrix<T>::LoadFile(string FileName) {
-
-    ifstream is(FileName);
+    ifstream is(FileName);    
     try {
         if (!is) throw "Файл не существует";
     }
     catch (const char* exception) {
         std::cerr << "Ошибка: " << exception << '\n';
     }
-    while (is) {
-
+    
+    is >> row >> col;
+    data = new T * [row];
+    //cout << row << "  " << col << endl;
+    for (int i = 0; i < row; i++) {
+        data[i] = new T[col];
+        for (int j = 0; j < col; j++)
+            is >> data[i][j];
     }
+    is.close();
 
+    return 0;
 }
 
 template<class T>
-int Matrix<T>::SaveFile(string FileName) {
-    ofstream outf(FileName);
+int Matrix<T>::SaveToFile(string FileName) {
+    ofstream outf(FileName, ios::binary);
     // Если мы не можем открыть этот файл для записи данных,
     try {
         // то выводим сообщение об ошибке и выполняем функцию exit()
@@ -148,17 +153,19 @@ int Matrix<T>::SaveFile(string FileName) {
     }
     // Записываем в файл следующие две строки
     
-    outf << "Row " << row << endl;
-    outf << "Col " << col << endl;
+    outf << row << endl;
+    outf << col << endl;
 
     int i, j;
 
     for (i = 0; i < row; i++) { // цикл по строкам    
         for (j = 0; j < col; j++) { // цикл по сначениям строк
             outf << (T)data[i][j];
+            outf << " ";
         }
-        std::cout << "\n";
+        outf << "\n";
     }
+    outf.close();
     // Когда outf выйдет из области видимости, то деструктор класса ofstream 
     // автоматически закроет наш файл
     return 0;
